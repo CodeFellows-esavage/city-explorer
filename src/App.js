@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "./components/Header.js";
 import Main from "./components/Main.js";
 import Footer from "./components/Footer.js";
+import ErrorModal from "./components/ErrorModal.js";
 
 
 class App extends Component {
@@ -11,8 +12,13 @@ class App extends Component {
     this.state = {
       locationQuery: '',
       locationObj: {},
-      error: false
+      error: false,
+      errorMsg: ''
     }
+  }
+
+  resetError = () => {
+    this.setState({error: false});
   }
   
   getLocation = async() => {
@@ -21,6 +27,7 @@ class App extends Component {
       this.setState({ locationObj: result.data[0]});
       this.setState({ error: true });
     } catch (error) {
+      this.setState({errorMsg: error.message});
       this.setState({ error: true });
     }
   }
@@ -33,8 +40,9 @@ class App extends Component {
   render(){
     return(
       // <div style={{backgroundColor: 'red'}}>
-      <div> 
+      <div>
         <Header locQryUpdt={this.locQryUpdt}/>
+        <ErrorModal error={this.state.error} resetError={this.resetError} errorMsg={this.state.errorMsg}/> 
         <Main locationObj={this.state.locationObj}/>
         <Footer />
       </div>

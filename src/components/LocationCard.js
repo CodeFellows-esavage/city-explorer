@@ -7,9 +7,6 @@ class LocationCard extends Component {
     render(){
         return(
             <>
-                {/* <h2> {this.props.locationObj.display_name} </h2>
-                <p> {`Latitude: ${this.props.locationObj.lat}`}</p>
-                <p> {`Longitude: ${this.props.locationObj.lon}`}</p> */}
                 <Card style={{ width: '50rem' }}>
                     <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&center=${this.props.locationObj.lat},${this.props.locationObj.lon}&zoom=13.9&size=1000x800`} />
                     <Card.Body>
