@@ -5,6 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 class SearchBar extends Component {
+    
+    locationSubmit = (e) => {
+        //execute some function to update locationQuery
+        e.preventDefault();
+        console.log(e.target.city.value);
+    }
+
     render() {
         return (
             <Form onSubmit={this.locationSubmit}>
