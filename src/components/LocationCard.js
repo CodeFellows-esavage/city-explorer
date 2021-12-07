@@ -22,7 +22,6 @@ class LocationCard extends Component {
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>{`Latitude: ${this.props.locationObj.lat}`}</ListGroupItem>
                         <ListGroupItem>{`Longitude: ${this.props.locationObj.lon}`}</ListGroupItem>
-                        <ListGroupItem>Vestibulum at eros</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                         <Card.Link href="#">Card Link</Card.Link>
