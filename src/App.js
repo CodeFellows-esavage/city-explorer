@@ -25,7 +25,7 @@ class App extends Component {
     try {
       let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&q=${this.state.locationQuery}&format=json`);
       this.setState({ locationObj: result.data[0]});
-      this.setState({ error: true });
+      this.setState({ error: false });
     } catch (error) {
       this.setState({errorMsg: error.message});
       this.setState({ error: true });
