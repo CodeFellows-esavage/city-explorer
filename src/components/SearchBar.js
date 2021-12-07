@@ -9,7 +9,7 @@ class SearchBar extends Component {
     formSubmit = (e) => {
         //execute some function to update locationQuery
         e.preventDefault();
-        this.props.locQryUpdt(e.target.city.value.toLowerCase());
+        this.props.locQryUpdt(e.target.location.value.toLowerCase());
     }
 
 
@@ -19,7 +19,7 @@ class SearchBar extends Component {
             <Form onSubmit={this.formSubmit}>
                 <Row>
                     <Col xs={7}>
-                        <Form.Control name="city" placeholder="City" />
+                        <Form.Control name="location" placeholder="Location" />
                     </Col>
                     {/* <Col>
                         <Form.Control placeholder="State" />

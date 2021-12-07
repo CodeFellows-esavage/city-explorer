@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p {
+  color: black;
+}
+
+h1 {
+  color: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  /* background-image: url("./public/images/redtopography.jpg"); */
+  /* background-color: rgb(145, 19, 19); */
+  background-image: linear-gradient(to bottom, rgb(8, 135, 157), rgba(255,0,0,0));
+}

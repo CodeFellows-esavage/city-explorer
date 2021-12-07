@@ -5,7 +5,7 @@ class Header extends Component {
     render() {
         return(
             <>
-                <h1> Header </h1>
+                <h1> Location Viewer </h1>
                 <SearchBar locQryUpdt={this.props.locQryUpdt}/>
             </>
         )

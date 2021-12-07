@@ -7,11 +7,8 @@ class LocationCard extends Component {
     render(){
         return(
             <>
-                {/* <h2> {this.props.locationObj.display_name} </h2>
-                <p> {`Latitude: ${this.props.locationObj.lat}`}</p>
-                <p> {`Longitude: ${this.props.locationObj.lon}`}</p> */}
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://via.placeholder.com/180x100" />
+                <Card style={{ width: '50rem' }}>
+                    <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&center=${this.props.locationObj.lat},${this.props.locationObj.lon}&zoom=13.9&size=1000x800`} />
                     <Card.Body>
                         <Card.Title>{this.props.locationObj.display_name}</Card.Title>
                         <Card.Text>
@@ -22,7 +19,6 @@ class LocationCard extends Component {
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>{`Latitude: ${this.props.locationObj.lat}`}</ListGroupItem>
                         <ListGroupItem>{`Longitude: ${this.props.locationObj.lon}`}</ListGroupItem>
-                        <ListGroupItem>Vestibulum at eros</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                         <Card.Link href="#">Card Link</Card.Link>
