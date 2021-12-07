@@ -18,9 +18,10 @@ class App extends Component {
   getLocation = async() => {
     try {
       let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&q=${this.state.locationQuery}&format=json`);
-      this.setState({ locationObj: result.data[0]})
+      this.setState({ locationObj: result.data[0]});
+      this.setState({ error: true });
     } catch (error) {
-      this.setState({ error: true })
+      this.setState({ error: true });
     }
   }
 
@@ -31,12 +32,16 @@ class App extends Component {
 
   render(){
     return(
-      <>
+      // <div style={{backgroundColor: 'red'}}>
+      <div> 
         <Header locQryUpdt={this.locQryUpdt}/>
         <Main locationObj={this.state.locationObj}/>
         <Footer />
-      </>
+      </div>
     )
   }
 }
 export default App;
+
+// >Background vector created by starline - www.freepik.com'
+//<a href='https://www.freepik.com/vectors/background'>Background vector created by starline - www.freepik.com</a>
