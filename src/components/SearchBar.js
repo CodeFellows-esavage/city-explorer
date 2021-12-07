@@ -6,15 +6,17 @@ import Button from 'react-bootstrap/Button';
 
 class SearchBar extends Component {
     
-    locationSubmit = (e) => {
+    formSubmit = (e) => {
         //execute some function to update locationQuery
         e.preventDefault();
         this.props.locQryUpdt(e.target.city.value.toLowerCase());
     }
 
+
+
     render() {
         return (
-            <Form onSubmit={this.locationSubmit}>
+            <Form onSubmit={this.formSubmit}>
                 <Row>
                     <Col xs={7}>
                         <Form.Control name="city" placeholder="City" />
