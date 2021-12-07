@@ -9,13 +9,19 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      locationQuery =
+      locationQuery: ''
     }
   }
+
+  locQryUpdt = (location) => {
+    this.setState({locationQuery: location});
+    console.log(this.state.locationQuery);
+  }
+
   render(){
     return(
       <>
-        <Header />
+        <Header locQryUpdt={this.locQryUpdt}/>
         <Main />
         <Footer />
       </>

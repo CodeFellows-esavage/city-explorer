@@ -9,7 +9,7 @@ class SearchBar extends Component {
     locationSubmit = (e) => {
         //execute some function to update locationQuery
         e.preventDefault();
-        console.log(e.target.city.value);
+        this.props.locQryUpdt(e.target.city.value.toLowerCase());
     }
 
     render() {

@@ -6,7 +6,7 @@ class Header extends Component {
         return(
             <>
                 <h1> Header </h1>
-                <SearchBar />
+                <SearchBar locQryUpdt={this.props.locQryUpdt}/>
             </>
         )
     }
