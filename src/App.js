@@ -18,8 +18,7 @@ class App extends Component {
   getLocation = async() => {
     try {
       let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&q=${this.state.locationQuery}&format=json`);
-        console.log(result.data[0]);
-        this.setState({ locationObj: result.data[0]})
+      this.setState({ locationObj: result.data[0]})
     } catch (error) {
       this.setState({ error: true })
     }
@@ -28,7 +27,6 @@ class App extends Component {
   locQryUpdt = (location) => {
     this.setState({locationQuery: location}, this.getLocation); 
     //callback this.getlocation executes after setState is complete
-
   }
 
   render(){
