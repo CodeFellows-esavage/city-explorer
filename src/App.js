@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   resetError = () => {
-    this.setState({error: false});
+    this.setState({error: false, locationQuery: '', locationObj: {}, forcastArr: []});
   }
   
   getLocation = async() => {
@@ -43,6 +43,7 @@ class App extends Component {
     } catch (error) {
       this.setState({ errorMsg: error.message});
       this.setState({ error: true })
+      console.log(this.state.errorMsg);
     }
   }
 
@@ -57,7 +58,8 @@ class App extends Component {
       <div>
         <Header locQryUpdt={this.locQryUpdt}/>
         <ErrorModal error={this.state.error} resetError={this.resetError} errorMsg={this.state.errorMsg}/> 
-        <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr}/>
+        {!this.state.error && 
+        <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr}/>}
         <Footer />
       </div>
     )
