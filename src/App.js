@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       locationQuery: '',
       locationObj: {},
-      weatherObj: {},
+      forcastArr: [],
       error: false,
       errorMsg: ''
     }
@@ -39,7 +39,7 @@ class App extends Component {
     console.log(locName);
     try {
       let result = await axios.get(`${process.env.REACT_APP_WEATHER_URL}/weather?query=${locName}&lat=latitude&lon=longitude`);
-      this.setState({weatherObj: result.data})
+      this.setState({forcastArr: result.data})
     } catch (error) {
       this.setState({ errorMsg: error.message});
       this.setState({ error: true })
@@ -57,7 +57,7 @@ class App extends Component {
       <div>
         <Header locQryUpdt={this.locQryUpdt}/>
         <ErrorModal error={this.state.error} resetError={this.resetError} errorMsg={this.state.errorMsg}/> 
-        <Main locationObj={this.state.locationObj}/>
+        <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr}/>
         <Footer />
       </div>
     )
