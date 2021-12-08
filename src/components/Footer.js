@@ -5,9 +5,9 @@ class Footer extends Component {
     render() {
         return (
             <Row sm={3} style={{alignItems: 'center', width: '50rem'}}>
-                <a href="https://www.github.com"> GitHub </a>
+                <a href="https://www.github.com/eriksavage"> GitHub </a>
                 <p> Developed By: Erik Savage </p>
-                <a href="https://www.linkedin.com"> LinkedIn </a>
+                <a href="https://www.linkedin.com/in/erikksavage"> LinkedIn </a>
             </Row>    
         )
     }

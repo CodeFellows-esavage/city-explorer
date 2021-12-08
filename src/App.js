@@ -12,23 +12,38 @@ class App extends Component {
     this.state = {
       locationQuery: '',
       locationObj: {},
+      forcastArr: [],
       error: false,
       errorMsg: ''
     }
   }
 
   resetError = () => {
-    this.setState({error: false});
+    this.setState({error: false, locationQuery: '', locationObj: {}, forcastArr: []});
   }
   
   getLocation = async() => {
     try {
-      let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&q=${this.state.locationQuery}&format=json`);
-      this.setState({ locationObj: result.data[0]});
+      let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&q=${this.state.locationQuery}&format=json`) ;
+      this.setState({ locationObj: result.data[0]}, this.getWeather);
       this.setState({ error: false });
+      console.log(this.state.locationObj);
     } catch (error) {
       this.setState({errorMsg: error.message});
       this.setState({ error: true });
+    }
+  }
+
+  getWeather = async() => {
+    let locName = this.state.locationObj.display_name.split(',')[0];
+    console.log(locName);
+    try {
+      let result = await axios.get(`${process.env.REACT_APP_WEATHER_URL}/weather?query=${locName}&lat=latitude&lon=longitude`);
+      this.setState({forcastArr: result.data})
+    } catch (error) {
+      this.setState({ errorMsg: error.message});
+      this.setState({ error: true })
+      console.log(this.state.errorMsg);
     }
   }
 
@@ -43,7 +58,8 @@ class App extends Component {
       <div>
         <Header locQryUpdt={this.locQryUpdt}/>
         <ErrorModal error={this.state.error} resetError={this.resetError} errorMsg={this.state.errorMsg}/> 
-        <Main locationObj={this.state.locationObj}/>
+        {!this.state.error && 
+        <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr}/>}
         <Footer />
       </div>
     )
