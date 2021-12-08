@@ -17,7 +17,7 @@ class LocationCard extends Component {
                         the card's content.
                         </Card.Text>
                     </Card.Body>
-                    <ListGroup className="list-group-flush">
+                    <ListGroup className="list-group-flush" style={{marginLeft: '1.5rem'}}>
                         <Row sm={2} style={{width: "100%"}}>
                             <ListGroupItem>{`Latitude: ${this.props.locationObj.lat}`}</ListGroupItem>
                             <ListGroupItem>{`Longitude: ${this.props.locationObj.lon}`}</ListGroupItem>

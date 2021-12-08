@@ -6,6 +6,7 @@ class Weather extends Component{
         return(
             <Card style={{ width: '18rem', textAlign: 'center'}}>
                 <Card.Body>
+                    <small className="text-muted">Weather Forcast For:</small>
                     <Card.Title>{this.props.forcast.date}</Card.Title>
                     <Card.Text>
                         {this.props.forcast.description}
