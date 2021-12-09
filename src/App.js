@@ -13,6 +13,7 @@ class App extends Component {
       locationQuery: '',
       locationObj: {},
       forcastArr: [],
+      movieArr: [],
       error: false,
       errorMsg: ''
     }
@@ -25,25 +26,42 @@ class App extends Component {
   getLocation = async() => {
     try {
       let result = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_EXPLORER_KEY}&q=${this.state.locationQuery}&format=json`) ;
-      this.setState({ locationObj: result.data[0]}, this.getWeather);
+      this.setState({ locationObj: result.data[0]}, this.getAdditionalDetails);
       this.setState({ error: false });
-      console.log(this.state.locationObj);
     } catch (error) {
       this.setState({errorMsg: error.message});
       this.setState({ error: true });
     }
   }
 
+  getAdditionalDetails() {
+    this.getWeather();
+    this.getMovie();
+  }
+
   getWeather = async() => {
-    let locName = this.state.locationObj.display_name.split(',')[0];
-    console.log(locName);
+    const lat = this.state.locationObj.lat;
+    const lon = this.state.locationObj.lon;
+
     try {
-      let result = await axios.get(`${process.env.REACT_APP_WEATHER_URL}/weather?query=${locName}&lat=latitude&lon=longitude`);
-      this.setState({forcastArr: result.data})
+      let result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather?&lat=${lat}&lon=${lon}`);
+      this.setState({forcastArr: result.data});
+      this.setState({ error: false });
     } catch (error) {
+      this.setState({forcastArr: []}); // sets state to empty array
       this.setState({ errorMsg: error.message});
       this.setState({ error: true })
-      console.log(this.state.errorMsg);
+    }
+  }
+
+  getMovie = async () => {
+    let locName = this.state.locationObj.display_name.split(',')[0];
+    console.log(locName);
+    try{
+      let result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movie?loc=${locName}`);
+      this.setState({movieArr:result});
+    } catch(error){
+      console.log(error.message);
     }
   }
 
