@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import LocationCard from './LocationCard.js';
 import Weather from './Weather.js';
-import Movie from './Movie.js';
+import Movies from './Movies.js';
 
 class Main extends Component {
     render() {
@@ -17,7 +17,7 @@ class Main extends Component {
                 </Row>
                 <Row style={{width: '54rem', marginLeft: '0rem'}}>
                     {this.props.movieArr ? this.props.movieArr.map(movieObj => {
-                        return <Movie movieArr={movieObj} key={movieObj.title}/>}) 
+                        return <Movies movieArr={movieObj} key={movieObj.title}/>}) 
                         : <small style={{textAlign: 'center', margin: '5px 0'}}>No movie data for this location...</small>
                     }
                 </Row>
