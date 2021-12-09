@@ -59,7 +59,7 @@ class App extends Component {
     console.log(locName);
     try{
       let result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movie?loc=${locName}`);
-      this.setState({movieArr:result});
+      this.setState({movieArr: result.data});
     } catch(error){
       console.log(error.message);
     }
@@ -77,7 +77,7 @@ class App extends Component {
         <Header locQryUpdt={this.locQryUpdt}/>
         <ErrorModal error={this.state.error} resetError={this.resetError} errorMsg={this.state.errorMsg}/> 
         {!this.state.error && 
-        <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr}/>}
+        <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr} movieArr={this.state.movieArr}/>}
         <Footer />
       </div>
     )
