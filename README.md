@@ -20,12 +20,30 @@ Technologies:
 - React
 - Bootstrap
 - LocationIQ API
-- Netlify
+- 
+- Netlify Hosting
+
+### Lab 08
+![Lab08WRRC](public/images/lab08WRRC.png)
+
+### Lab 07
+![Lab08WRRC](public/images/lab07WRRC.png)
+
+### Lab 06
+![Lab08WRRC](public/images/lab06WRRC.png)
+
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+- 12-08-2021 - Application is now hosted on Heroku
+- 12-08-2021 - Application now has GET routes established to a movie and weather resource
+- 12-07-2021 - Fully functional express server working with test weather data rendering
+- 12-06-2021 - Application now has GET routes established to locatino resource and rendering
+
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+- Andrew Enyeart
+- Dani
