@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 class ErrorModal extends Component {
     
     handleClose = () => {
-        this.props.resetError();
+        this.props.resetState();
     }
     
     render() {
