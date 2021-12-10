@@ -19,8 +19,8 @@ class App extends Component {
     }
   }
 
-  resetError = () => {
-    this.setState({error: false, locationQuery: '', locationObj: {}, forcastArr: []});
+  resetState = () => {
+    this.setState({error: false, locationQuery: '', locationObj: {}, forcastArr: [], movieArr: []});
   }
   
   getLocation = async() => {
@@ -67,15 +67,13 @@ class App extends Component {
 
   locQryUpdt = (location) => {
     this.setState({locationQuery: location}, this.getLocation); 
-    //callback this.getlocation executes after setState is complete
   }
 
   render(){
     return(
-      // <div style={{backgroundColor: 'red'}}>
       <div>
-        <Header locQryUpdt={this.locQryUpdt}/>
-        <ErrorModal error={this.state.error} resetError={this.resetError} errorMsg={this.state.errorMsg}/> 
+        <Header locQryUpdt={this.locQryUpdt} resetState={this.resetState}/>
+        <ErrorModal error={this.state.error} resetState={this.resetState} errorMsg={this.state.errorMsg}/> 
         {!this.state.error && 
         <Main locationObj={this.state.locationObj} forcastArr={this.state.forcastArr} movieArr={this.state.movieArr}/>}
         <Footer />

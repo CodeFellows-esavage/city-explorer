@@ -6,7 +6,7 @@ class Header extends Component {
         return(
             <>
                 <h1> Location Viewer </h1>
-                <SearchBar locQryUpdt={this.props.locQryUpdt}/>
+                <SearchBar locQryUpdt={this.props.locQryUpdt} resetState={this.props.resetState}/>
             </>
         )
     }
