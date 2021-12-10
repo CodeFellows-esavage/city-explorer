@@ -15,10 +15,10 @@ class MovieDetail extends Component{
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>{this.props.movieArr.released_on}</ListGroupItem>
-                    <ListGroupItem>{this.props.movieArr.popularity}</ListGroupItem>
-                    <ListGroupItem>{this.props.movieArr.average_votes}</ListGroupItem>
-                    <ListGroupItem>{this.props.movieArr.total_votes}</ListGroupItem>
+                    <ListGroupItem> Release Date: {this.props.movieArr.released_on}</ListGroupItem>
+                    <ListGroupItem>Popularity: {this.props.movieArr.popularity}</ListGroupItem>
+                    <ListGroupItem>Average Votes: {this.props.movieArr.average_votes}</ListGroupItem>
+                    <ListGroupItem>Total Voites: {this.props.movieArr.total_votes}</ListGroupItem>
                 </ListGroup>
             </Card>
         )
