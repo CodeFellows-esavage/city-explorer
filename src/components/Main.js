@@ -8,8 +8,8 @@ class Main extends Component {
         return (
             <>
                 {this.props.locationObj.display_name ? <LocationCard locationObj={this.props.locationObj}/> : <h3>Enter a location to explore, to find local details...</h3>}
-                <Weather forcastArr={this.props.forcastArr}/>
-                <Movies movieArr={this.props.movieArr}/>
+                <Weather forcastArr={this.props.forcastArr} locationObj={this.props.locationObj}/>
+                <Movies movieArr={this.props.movieArr} locationObj={this.props.locationObj}/>
             </>    
         )
     }

@@ -15,6 +15,7 @@ City-Explorer will allow a user to search for a location (city name) and return 
 - passes request to LocationIQ API
 - if successful retreives location name, latitude, and longitude
 - passes name, latitude and longitude to backend, via two requests
+- checks if cache contains request with key, if not new requests are made to the APIs
   - backend passes latitude and longitude as a request to WeatherBit API
     - if successful retrieves 16 day forcast data
     - data is cleaned and stored in an array
@@ -36,6 +37,9 @@ Technologies:
 - TheMovieDB API
 - Netlify Hosting
 
+### Lab 10:
+![Lab10WRRC](public/images/lab10WRRC.png)
+
 ### Lab 08/09:
 ![Lab08WRRC](public/images/lab08WRRC.png)
 
@@ -46,6 +50,7 @@ Technologies:
 ![Lab08WRRC](public/images/lab06WRRC.png)
 
 ## Change Log
+- 12-11-2021 - Aplication backend is now cached, subsequent searches of the same location will result in faster response times
 - 12-09-2021 - Aplication backend and frontend modularization/componetization
 - 12-08-2021 - Application is now hosted on Heroku
 - 12-08-2021 - Application now has GET routes established to a movie and weather resource
@@ -54,6 +59,7 @@ Technologies:
 
 
 ## Credit and Collaborations
-- Andrew Enyeart
-- Daniel Jackson
+- Andrew Enyeart, code discussion/review
+- Daniel Jackson, code discussion/review
 - Lianne Eaton Cook [pb.base.com](https://www.pbase.com/lecook/profile) - cat movie post image
+- CodeFellows
